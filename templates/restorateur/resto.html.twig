@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title_container %}Resto{% endblock %}
+
+{% block page_name %}Resto{% endblock %}
+
+{% block inner_container %}
+            <div class="col-12">
+              <div class="card recent-sales">
+                <div class="card-body">
+                  <h5 class="card-title">Resto <span>| Ajouter un Resto </span></h5>
+                    {{ form_start(form) }}
+                    <div class="row mb-3">
+                      <label for="inputText" class="col-sm-2 col-form-label">Nom</label>
+                      <div class="col-sm-10">
+                          {{ form_widget(form.nom) }}  
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Adresse</label>
+                      <div class="col-sm-10">
+                          {{ form_widget(form.adresse) }}
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Tel</label>
+                      <div class="col-sm-10">
+                           {{ form_widget(form.tel) }}
+                      </div>
+                    <div class="row mb-3">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Ville</label>
+                      <div class="col-sm-10">
+                           {{ form_widget(form.ville) }}
+                      </div>  
+                    </div>
+                    <div class="row mb-3">
+                      <label class="col-sm-2 col-form-label"></label>
+                      <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Soumettre</button>
+                      </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="card recent-sales">
+                <div class="card-body">
+                  <h5 class="card-title">Resto <span>| Gérer les Resto </span></h5>
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOM</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Tel</th>
+                        <th scope="col">Ville</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for Resto in Restos %}
+                        <tr>
+                            <th scope="row">{{Resto.id}}</th>
+                            <td>{{Resto.nom}}</td>
+                            <td>{{Resto.adresse}}</td>
+                            <td>{{Resto.tel}}</td>
+                            <td>{{Resto.ville}}</td>
+                            <td class='d-flex'>
+                              <a type="submit" href="" class="btn btn-outline-warning mx-2">
+                                <i class="bi bi-pencil-square"></i>
+                              </a>
+                              <a type="submit" href="" class="btn btn-outline-danger mx-2">
+                                <i class="bi bi-trash-fill"></i>
+                              </a>
+                            </td>
+                        </tr>
+                      {% endfor %}
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+{% endblock %}
