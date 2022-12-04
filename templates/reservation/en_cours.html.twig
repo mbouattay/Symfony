@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title_container %}reservation{% endblock %}
+
+{% block page_name %}reservation{% endblock %}
+
+{% block inner_container %}
+    <div class="col-12">
+        <div class="card recent-sales">
+            <div class="card-body">
+                <h5 class="card-title">reservationandes <span>| Gérer les reservation effectuées</span></h5>
+                <table class="table datatable">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Client</th>
+                        <th scope="col">Resto</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">ETAT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reservation in reservations %}
+                            {% if reservation.etat == 'en cours' %}
+                            <tr>
+                                <th scope="row">{{reservation.id}}</th>
+                                <td>{{reservation.client.nom}}</td>
+                                <td>
+                                            {{reservation.resto.nom}}
+                                </td>
+                                 <td>{{reservation.date|date('d-m-Y')}} {{ reservation.date|date('H:i') }}</td>
+                                <td>
+                                    <span class="badge bg-warning">
+                                        {{reservation.etat}}
+                                    </span>
+                                </td>
+                                
+                                
+                                <td class='d-flex'>
+                                    <a type="submit" href="{{path('reservation_valide', {id:reservation.id})}}" class="btn btn-success btn-sm mx-2">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </a>
+                                    <a type="submit" href="{{path('reservation_delete', {id:reservation.id})}}" class="btn btn-danger btn-sm mx-2">
+                                        <i class="bi bi-x-circle-fill"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                              {% endif %}
+                        {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -142,21 +142,13 @@
               <i class="bi bi-circle"></i><span>Ajouter un Resto</span>
             </a>
           </li>
-          <li>
-            <a href="{{path('addmenu')}}">
-              <i class="bi bi-circle"></i><span>Ajouter un menu</span>
-            </a>
-          </li>
+          
           <li>
             <a href="{{path('showResto', {id:1})}}">
               <i class="bi bi-circle"></i><span>  les  Resto</span>
             </a>
           </li>
-          <li>
-            <a href="{{path('showmenu')}}">
-              <i class="bi bi-circle"></i><span> les menu</span>
-            </a>
-          </li>
+         
         </ul>
       </li><!-- End Catalogues Nav -->
 
@@ -166,17 +158,17 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{path('encours_reservation')}}">
               <i class="bi bi-circle"></i><span>En cours</span>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{path('valide_res')}}">
               <i class="bi bi-circle"></i><span>valide</span>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{path('show_reservation')}}">
               <i class="bi bi-circle"></i><span>Lister toutes les reservation</span>
             </a>
           </li>
@@ -185,32 +177,21 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-truck"></i><span>Gerer les livraisons</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-truck"></i><span>Gerer les menu</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Livraisons</span>
+            <a href="{{path('addmenu')}}">
+              <i class="bi bi-circle"></i><span>Ajouter un menu</span>
+            </a>
+          </li>
+           <li>
+            <a href="{{path('showmenu')}}">
+              <i class="bi bi-circle"></i><span> les menu</span>
             </a>
           </li>
         </ul>
       </li><!-- End Livraison Nav -->
-
-      <li class="nav-heading">Affichages</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
-          <i class="bi bi-people"></i>
-          <span>Commandes</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
-          <i class="bi bi-truck"></i>
-          <span>Livraisons</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="">

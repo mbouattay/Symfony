@@ -34,4 +34,18 @@ class ReservationController extends AbstractController
         $reservationRepository->remove($Reservation, true); 
         return $this->redirectToRoute('show_reservation', [], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/reservation/encours', name: 'encours_reservation', methods: ['GET'])]
+    public function enCours(ReservationRepository $reservationRepository): Response
+    {
+        return $this->render('reservation/en_cours.html.twig', [
+            'reservations' => $reservationRepository->findAll(),
+        ]);
+    }
+    #[Route('/reservation/valide', name: 'valide_res', methods: ['GET'])]
+    public function valide(ReservationRepository $reservationRepository): Response
+    {
+        return $this->render('reservation/valide.html.twig', [
+            'reservations' => $reservationRepository->findAll(),
+        ]);
+    }
 }
