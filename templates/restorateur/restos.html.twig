@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title_container %}Resto{% endblock %}
+
+{% block page_name %}Resto{% endblock %}
+
+{% block inner_container %}
+
+            <div class="col-12">
+              <div class="card recent-sales">
+                <div class="card-body">
+                  <h5 class="card-title">Resto <span>| Gérer les Resto </span></h5>
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOM</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Tel</th>
+                        <th scope="col">Ville</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                         {% for Resto in Restos %}
+                        <tr>
+                            {% if id == Resto.restorateur.id %}
+                                <th scope="row">{{Resto.id}}</th>
+                                <td>{{Resto.nom}}</td>
+                                <td>{{Resto.adresse}}</td>
+                                <td>{{Resto.tel}}</td>
+                                <td>{{Resto.ville}}</td>
+                                <td class='d-flex'>
+                                <a type="submit" href="{{path('Resto_edit', {id:Resto.id})}}" class="btn btn-outline-warning mx-2">
+                                <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a type="submit" href="{{path('deleteResto', {id:Resto.id})}}" class="btn btn-outline-danger mx-2">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
+                                </td>
+                            {% endif %}
+                            
+                        </tr>
+                      {% endfor %}
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+{% endblock %}

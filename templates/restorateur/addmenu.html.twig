@@ -1,38 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title_container %}Resto{% endblock %}
+{% block title_container %}Menu{% endblock %}
 
-{% block page_name %}Resto{% endblock %}
+{% block page_name %}Menu{% endblock %}
 
 {% block inner_container %}
             <div class="col-12">
               <div class="card recent-sales">
                 <div class="card-body">
-                  <h5 class="card-title">Resto <span>| Ajouter un Resto </span></h5>
-                     {{ form_start(form) }}
+                  <h5 class="card-title">Menu <span>| Ajouter un Menu </span></h5>
+                    {{ form_start(form) }}
                     <div class="row mb-3">
                       <label for="inputText" class="col-sm-2 col-form-label">Nom</label>
                       <div class="col-sm-10">
-                          {{ form_widget(form.nom) }} 
+                          {{ form_widget(form.nom) }}  
                       </div>
                     </div>
                     <div class="row mb-3">
-                      <label for="inputPassword" class="col-sm-2 col-form-label">Adresse</label>
+                      <label for="inputPassword" class="col-sm-2 col-form-label">prix</label>
                       <div class="col-sm-10">
-                        {{ form_widget(form.adresse) }}
+                             {{ form_widget(form.prix) }}
                       </div>
                     </div>
                     <div class="row mb-3">
-                      <label for="inputPassword" class="col-sm-2 col-form-label">Tel</label>
+                      <label for="inputPassword" class="col-sm-2 col-form-label">resto</label>
                       <div class="col-sm-10">
-                           {{ form_widget(form.tel) }}
+                           {{ form_widget(form.resto) }}
                       </div>
-                    <div class="row mb-3">
-                      <label for="inputPassword" class="col-sm-2 col-form-label">Ville</label>
-                      <div class="col-sm-10">
-                          {{ form_widget(form.ville) }}
-                      </div>  
-                    </div>
                     <div class="row mb-3">
                       <label class="col-sm-2 col-form-label"></label>
                       <div class="col-sm-10">
@@ -47,31 +41,28 @@
             <div class="col-12">
               <div class="card recent-sales">
                 <div class="card-body">
-                  <h5 class="card-title">Resto <span>| Gérer les Resto </span></h5>
+                  <h5 class="card-title">Menu <span>| Gérer les menu </span></h5>
                   <table class="table table-sm">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">NOM</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col">Tel</th>
-                        <th scope="col">Ville</th>
+                        <th scope="col">prix DT</th>
+                        <th scope="col">Resto</th>
                       </tr>
                     </thead>
                     <tbody>
-                        
-                     {% for Resto in Restos %}
+                      {% for menu in menus %}
                         <tr>
-                            <th scope="row">{{Resto.id}}</th>
-                            <td>{{Resto.nom}}</td>
-                            <td>{{Resto.adresse}}</td>
-                            <td>{{Resto.tel}}</td>
-                            <td>{{Resto.ville}}</td>
+                            <th scope="row">{{menu.id}}</th>
+                            <td>{{menu.nom}}</td>
+                            <td>{{menu.prix}}</td>
+                            <td>{{menu.resto.nom}}</td>
                             <td class='d-flex'>
-                                <a type="submit" href="{{path('Resto_edit', {id:Resto.id})}}" class="btn btn-outline-warning mx-2">
+                                <a type="submit" href="{{path('menu_edit', {id:menu.id})}}" class="btn btn-outline-warning mx-2">
                                 <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <a type="submit" href="{{path('deleteResto', {id:Resto.id})}}" class="btn btn-outline-danger mx-2">
+                                <a type="submit" href="{{path('deletemenu', {id:menu.id})}}" class="btn btn-outline-danger mx-2">
                                     <i class="bi bi-trash-fill"></i>
                                 </a>
                             </td>

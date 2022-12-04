@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title_container %}Menu{% endblock %}
+
+{% block page_name %}Menu{% endblock %}
+
+{% block inner_container %}
+
+            <div class="col-12">
+              <div class="card recent-sales">
+                <div class="card-body">
+                  <h5 class="card-title">Resto <span>| Gérer les Menu </span></h5>
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOM</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Resto</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                         {% for menu in menus %}
+                        <tr>
+                          
+                                <th scope="row">{{menu.id}}</th>
+                                <td>{{menu.nom}}</td>
+                                 <td>{{menu.prix}}</td>
+                                <td>{{menu.resto.nom}}</td>
+                                <td class='d-flex'>
+                                <a type="submit" href="{{path('menu_edit', {id:menu.id})}}" class="btn btn-outline-warning mx-2">
+                                <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a type="submit" href="{{path('deletemenu', {id:menu.id})}}" class="btn btn-outline-danger mx-2">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
+                                </td>
+                          
+                            
+                        </tr>
+                      {% endfor %}
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+{% endblock %}

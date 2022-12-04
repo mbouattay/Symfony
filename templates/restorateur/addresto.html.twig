@@ -66,13 +66,13 @@
                             <td>{{Resto.adresse}}</td>
                             <td>{{Resto.tel}}</td>
                             <td>{{Resto.ville}}</td>
-                            <td class='d-flex'>
-                              <a type="submit" href="" class="btn btn-outline-warning mx-2">
+                           <td class='d-flex'>
+                                <a type="submit" href="{{path('Resto_edit', {id:Resto.id})}}" class="btn btn-outline-warning mx-2">
                                 <i class="bi bi-pencil-square"></i>
-                              </a>
-                              <a type="submit" href="" class="btn btn-outline-danger mx-2">
-                                <i class="bi bi-trash-fill"></i>
-                              </a>
+                                </a>
+                                <a type="submit" href="{{path('deleteResto', {id:Resto.id})}}" class="btn btn-outline-danger mx-2">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
                             </td>
                         </tr>
                       {% endfor %}
