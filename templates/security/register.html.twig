@@ -14,48 +14,37 @@
                     <h5 class="card-title text-center pb-0 fs-4">Creation d'un compte</h5>
                     <p class="text-center small">Entrez vos données pour créer un compte</p>
                   </div>
-                  <form class="row g-3 needs-validation" method='post' novalidate>
+                   {{ form_start(form) }}
+                  <div class="row g-3 needs-validation"  novalidate>
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nom</label>
-                      <input type="text" name="nom" class="form-control" id="yourName" required>
+                        {{ form_widget(form.nom) }} 
                       <div class="invalid-feedback">Entrez un nom valide!</div>
                     </div>
                     <div class="col-12">
                       <label for="yourFName" class="form-label">Prenom</label>
-                      <input type="text" name="prenom" class="form-control" id="yourEmail" required>
+                      {{ form_widget(form.prenom) }} 
                       <div class="invalid-feedback">Entrez un prenom valide!</div>
                     </div>
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Email</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="email" name="email" class="form-control" id="yourEmail" required>
+                        {{ form_widget(form.email) }} 
                         <div class="invalid-feedback">Entrez votre adresse email!</div>
                       </div>
                     </div>
                     <div class="col-12">
                       <label for="yourNumber" class="form-label">Telephone</label>
-                      <input type="tel" name="telephone" class="form-control" id="yourPassword" required>
+                      {{ form_widget(form.tel) }} 
                       <div class="invalid-feedback">Entrez votre numero de Telephone!</div>
                     </div>
-                    <div class="col-12">
-                      <label for="yourAddress" class="form-label">Adresse</label>
-                      <input type="text" name="address" class="form-control" id="yourAdress" required>
-                      <div class="invalid-feedback">Entrez votre adresse!</div>
-                    </div>
-                    <div class="col-12">
-                      <label for="yourAvatar" class="form-label">Avatar (facultatif)</label>
-                      <input type="file" name="avatar" class="form-control" id="yourAvatar" required>
-                    </div>
+                   
+                    
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Mot de passe</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                     {{ form_widget(form.password) }} 
                       <div class="invalid-feedback">Entrez votre mot de passe!</div>
-                    </div>
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Confirmer votre mot de passe</label>
-                      <input type="password" name="confirm_password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Entrez deux mot de passes identiques!</div>
                     </div>
                     <div class="col-12">
                       <div class="form-check">
@@ -70,7 +59,8 @@
                     <div class="col-12">
                       <p class="small mb-0">Vous avez deja un compte? <a href="{{path('login')}}">Connectez-vous.</a></p>
                     </div>
-                  </form>
+                  </div>
+                  {{ form_end(form) }}
                 </div>
               </div>
             </div>
