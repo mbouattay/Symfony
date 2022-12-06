@@ -1,0 +1,40 @@
+{% extends 'base1.html.twig' %}
+
+{% block title_container %}Resto menu{% endblock %}
+
+{% block page_name %}Menu{% endblock %}
+
+{% block inner_container %}
+   
+        <div class="container">
+            <div class="card">
+                    <div class="card-body"> 
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">id</th>
+                                <th scope="col">nom</th>
+                                <th scope="col">prix</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for menu in menus %}
+                                {% if menu.resto.id == idResto %}
+                                <tr>
+                                    <td></td>
+                                    <th scope="row">{{menu.id}}</th>
+                                    <td>{{menu.nom}}</td>
+                                    <td>{{menu.prix}}</td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </br>
+                 <a class="book-a-table-btn scrollto" href="#" id="btn-show-cart"> Reserve </a>
+            </div>  
+              
+{% endblock %}

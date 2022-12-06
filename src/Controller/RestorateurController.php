@@ -115,7 +115,7 @@ class RestorateurController extends AbstractController
             'id'=>$id
         ]);
     }
-    #[Route('/{id}', name: 'deleteResto')]
+    #[Route('/dResto/{id}', name: 'deleteResto')]
     public function delete(Request $request, Resto $resto, RestoRepository $restoRepository): Response
     {
         $resto->getId();
